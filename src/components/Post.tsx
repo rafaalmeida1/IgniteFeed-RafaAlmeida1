@@ -1,6 +1,7 @@
 import { format, formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { ChangeEvent, FormEvent, SetStateAction, useState } from 'react';
+import { useId } from 'react-id-generator';
 
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
@@ -24,6 +25,8 @@ export function Post({ author, content, publishedAt }: PostProps) {
     ]);
 
     const [newCommentText, setNewCommentText] = useState('');
+
+    const [htmlId] = useId();
 
     const publishedDateFormatted = format(
         publishedAt,
@@ -130,7 +133,7 @@ export function Post({ author, content, publishedAt }: PostProps) {
             <div className="mt-8">
                 {comments.map(comment => (
                     <Comment
-                        key={comment}
+                        key={htmlId}
                         content={comment}
                         onDeleteComment={deleteComment}
                     />
