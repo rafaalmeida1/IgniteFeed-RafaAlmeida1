@@ -1,11 +1,12 @@
 import classNames from "classnames";
 
 interface AvatarProps {
-    hasBorder: boolean;
+    hasBorder?: boolean;
     src: string;
+    alt?: string;
 }
 
-export function Avatar({ hasBorder, src }: AvatarProps) { //Se essa propriedade não possuir nenhum valor, o valor dela vai ser true
+export function Avatar({ hasBorder, src, alt }: AvatarProps) { //Se essa propriedade não possuir nenhum valor, o valor dela vai ser true
     return (
         <img
             className={classNames('rounded-lg', {
@@ -13,6 +14,7 @@ export function Avatar({ hasBorder, src }: AvatarProps) { //Se essa propriedade 
                 'w-[3rem] h-[3rem]': !hasBorder,
             })}
             src={src}
+            alt={alt}
         />
     )
 }

@@ -10,7 +10,7 @@ export function Sidebar() {
             />
 
             <div className="flex flex-col items-center mt-[calc(0px-1.5rem-6px)]">
-                <Avatar hasBorder={true} src="https://github.com/rafaalmeida1.png" /> 
+                <Avatar hasBorder={true} src="https://github.com/rafaalmeida1.png" alt="" /> 
 
                 <strong className="mt-[1rem] text-gray-100 leading-relaxed">Rafael Almeida</strong>
                 <span className="text-sm text-gray-400 leading-relaxed">Web Developer</span>

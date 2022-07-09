@@ -1,21 +1,25 @@
 import { format, formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-import { ChangeEvent, FormEvent, SetStateAction, useState } from 'react';
+import { ChangeEvent, FormEvent, InvalidEvent, SetStateAction, useState } from 'react';
 import { useId } from 'react-id-generator';
 
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
 
+interface Avatar {
+    name: string;
+    avatarUrl: string;
+    role: string;
+}
+
+interface Content {
+    type: 'paragraph' | 'link';
+    content: string;
+}
+
 interface PostProps {
-    author: {
-        avatarUrl: string;
-        name: string;
-        role: string;
-    };
-    content: {
-        type: string;
-        content: string;
-    }[];
+    author: Avatar;
+    content: Content[];
     publishedAt: Date;
 }
 
@@ -53,7 +57,7 @@ export function Post({ author, content, publishedAt }: PostProps) {
         setNewCommentText(event.target.value);
     }
 
-    function handleNewCommentInvalid(event:ChangeEvent<HTMLTextAreaElement>) {
+    function handleNewCommentInvalid(event:InvalidEvent<HTMLTextAreaElement>) {
         event.target.setCustomValidity('Esse campo é obrigatório!')
     }
 

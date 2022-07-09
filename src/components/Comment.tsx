@@ -23,7 +23,7 @@ export const Comment = ({content, onDeleteComment}: CommentProps) => {
 
     return(
         <div className="mt-6 flex gap-4">
-            <Avatar hasBorder={false} src="https://github.com/rafaalmeida1.png" />
+            <Avatar hasBorder={false} src="https://github.com/rafaalmeida1.png" alt="" />
 
              <div className="flex-1"> {/* Vai ser toda a area do comentário, exceto o avatar. E aqui dentro, vou separar a parte mais cinza, e a parte do aplaudir */}
                 <div className="bg-gray-700 rounded-lg p-4"> {/*Aqui sim será a parte cinza com o conteudo, abaixo disso será o aplaudir. */}
